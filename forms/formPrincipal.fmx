@@ -1,0 +1,291 @@
+object frmVendas: TfrmVendas
+  Left = 0
+  Top = 0
+  ActiveControl = edtPedidoQuantidade
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = ToolWindow
+  Caption = 'Pedidos'
+  ClientHeight = 525
+  ClientWidth = 624
+  Position = ScreenCenter
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  DesignerMasterStyle = 0
+  object grpCliente: TGroupBox
+    Align = Top
+    Position.Y = 49.000000000000000000
+    Size.Width = 624.000000000000000000
+    Size.Height = 55.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'Cliente'
+    TabOrder = 0
+    object lblClienteNome: TLabel
+      StyledSettings = [Family, Size, Style]
+      Padding.Left = 1.000000000000000000
+      Padding.Top = 1.000000000000000000
+      Padding.Right = 1.000000000000000000
+      Padding.Bottom = 1.000000000000000000
+      Position.X = 80.000000000000000000
+      Position.Y = 26.000000000000000000
+      Size.Width = 409.000000000000000000
+      Size.Height = 19.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.FontColor = claBlue
+      TabOrder = 1
+    end
+    object edtClienteId: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      TabOrder = 0
+      Position.X = 16.000000000000000000
+      Position.Y = 24.000000000000000000
+      Size.Width = 49.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      OnExit = edtClienteIdExit
+    end
+  end
+  object grpProduto: TGroupBox
+    Align = Top
+    Position.Y = 104.000000000000000000
+    Size.Width = 624.000000000000000000
+    Size.Height = 57.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'Produto'
+    TabOrder = 1
+    object edtProdutoId: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      TabOrder = 0
+      Position.X = 16.000000000000000000
+      Position.Y = 24.000000000000000000
+      Size.Width = 49.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      OnExit = edtProdutoIdExit
+    end
+    object lblProdutoNome: TLabel
+      StyledSettings = [Family, Size, Style]
+      Position.X = 80.000000000000000000
+      Position.Y = 27.000000000000000000
+      Size.Width = 409.000000000000000000
+      Size.Height = 17.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.FontColor = claBlue
+      TabOrder = 1
+    end
+  end
+  object grpPedido: TGroupBox
+    Align = Top
+    Position.Y = 161.000000000000000000
+    Size.Width = 624.000000000000000000
+    Size.Height = 75.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'Pedido'
+    TabOrder = 2
+    object edtPedidoQuantidade: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      TabOrder = 0
+      KeyboardType = NumberPad
+      Position.X = 16.000000000000000000
+      Position.Y = 35.000000000000000000
+      OnExit = edtPedidoQuantidadeExit
+    end
+    object lblPedidoQuantidade: TLabel
+      Position.X = 16.000000000000000000
+      Position.Y = 16.000000000000000000
+      Text = 'Quantidade'
+      TabOrder = 7
+    end
+    object lblPedidoPreco: TLabel
+      Position.X = 128.000000000000000000
+      Position.Y = 18.000000000000000000
+      Text = 'Pre'#231'o'
+      TabOrder = 6
+    end
+    object edtPedidoPreco: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      TabOrder = 1
+      KeyboardType = NumberPad
+      Position.X = 128.000000000000000000
+      Position.Y = 35.000000000000000000
+      OnExit = edtPedidoPrecoExit
+    end
+    object btnAdd: TButton
+      Position.X = 496.000000000000000000
+      Position.Y = 24.000000000000000000
+      Size.Width = 89.000000000000000000
+      Size.Height = 33.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 4
+      Text = 'Adicionar'
+      OnClick = btnAddClick
+    end
+    object lblValorTotal: TLabel
+      Position.X = 240.000000000000000000
+      Position.Y = 19.000000000000000000
+      Text = 'Valor Total'
+      TabOrder = 5
+    end
+    object edtProdutoValorTotal: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      TabOrder = 2
+      KeyboardType = NumberPad
+      Position.X = 240.000000000000000000
+      Position.Y = 35.000000000000000000
+      Enabled = False
+      Size.Width = 113.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+    end
+    object btnEdita: TButton
+      Enabled = False
+      Position.X = 400.000000000000000000
+      Position.Y = 24.000000000000000000
+      Size.Width = 89.000000000000000000
+      Size.Height = 33.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 3
+      Text = 'Editar'
+      OnClick = btnEditaClick
+    end
+  end
+  object grpPedidoItens: TGroupBox
+    Align = Client
+    Size.Width = 624.000000000000000000
+    Size.Height = 228.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'Itens'
+    TabOrder = 3
+    object grpPedidoProdutos: TGrid
+      Align = Client
+      CanFocus = True
+      ClipChildren = True
+      Margins.Left = 10.000000000000000000
+      Margins.Top = 20.000000000000000000
+      Margins.Right = 10.000000000000000000
+      Margins.Bottom = 10.000000000000000000
+      PopupMenu = popupGrid
+      Size.Width = 604.000000000000000000
+      Size.Height = 198.000000000000000000
+      Size.PlatformDefault = False
+      StyledSettings = [Family, Size, Style]
+      TabOrder = 0
+      RowCount = 0
+      Options = [AlternatingRowBackground, ColumnResize, ColLines, RowLines, RowSelect, Header]
+      OnSelectCell = grpPedidoProdutosSelectCell
+      OnGetValue = grpPedidoProdutosGetValue
+      Viewport.Width = 600.000000000000000000
+      Viewport.Height = 173.000000000000000000
+      object colProdutoId: TIntegerColumn
+        Header = 'C'#243'digo'
+        Size.Width = 49.000000000000000000
+      end
+      object colProdutoNome: TStringColumn
+        Header = 'Produto'
+        Size.Width = 182.000000000000000000
+      end
+      object colProdutoQuantidade: TIntegerColumn
+        Header = 'Quantidade'
+        Size.Width = 72.000000000000000000
+      end
+      object colProdutoPreco: TCurrencyColumn
+        Header = 'Pre'#231'o (R$)'
+        Size.Width = 90.000000000000000000
+      end
+      object colProdutoPrecoTotal: TCurrencyColumn
+        Header = 'Total (R$)'
+        Size.Width = 90.000000000000000000
+      end
+    end
+  end
+  object pnlTopo: TPanel
+    Align = Top
+    Size.Width = 624.000000000000000000
+    Size.Height = 49.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 5
+    object lblTitulo: TLabel
+      StyledSettings = [Style]
+      Position.X = 16.000000000000000000
+      Position.Y = 12.000000000000000000
+      Size.Width = 105.000000000000000000
+      Size.Height = 29.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Family = 'Verdana'
+      TextSettings.Font.Size = 24.000000000000000000
+      TextSettings.FontColor = claDarkblue
+      Text = 'Pedido'
+      TabOrder = 0
+    end
+    object btnAbrir: TButton
+      StyledSettings = [Family, Size, Style]
+      Position.X = 512.000000000000000000
+      Position.Y = 5.000000000000000000
+      Size.Width = 89.000000000000000000
+      Size.Height = 33.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      Text = 'Abrir pedido'
+      OnClick = btnAbrirClick
+    end
+  end
+  object grpResumoPedido: TGroupBox
+    Align = Bottom
+    Position.Y = 464.000000000000000000
+    Size.Width = 624.000000000000000000
+    Size.Height = 61.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'Resumo'
+    TabOrder = 4
+    object lblResumoQuantidade: TLabel
+      Position.X = 22.000000000000000000
+      Position.Y = 28.000000000000000000
+      Text = 'Quantidade:'
+      TabOrder = 6
+    end
+    object edtResumoQuantidade: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      TabOrder = 0
+      Position.X = 96.000000000000000000
+      Position.Y = 24.000000000000000000
+      Enabled = False
+    end
+    object lblResumoValorTotal: TLabel
+      Position.X = 216.000000000000000000
+      Position.Y = 28.000000000000000000
+      Size.Width = 81.000000000000000000
+      Size.Height = 17.000000000000000000
+      Size.PlatformDefault = False
+      Text = 'Valor Total:'
+      TabOrder = 5
+    end
+    object edtResumoValorTotal: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      TabOrder = 1
+      Position.X = 280.000000000000000000
+      Position.Y = 24.000000000000000000
+      Enabled = False
+    end
+    object btnSalva: TButton
+      Position.X = 400.000000000000000000
+      Position.Y = 19.000000000000000000
+      Size.Width = 186.000000000000000000
+      Size.Height = 33.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      Text = 'Gravar o Pedido'
+      OnClick = btnSalvaClick
+    end
+  end
+  object popupGrid: TPopupMenu
+    Left = 152
+    Top = 316
+    object mnuProdutoExcluir: TMenuItem
+      ShortCut = 46
+      Text = 'Excluir'
+      OnClick = mnuProdutoExcluirClick
+    end
+  end
+end

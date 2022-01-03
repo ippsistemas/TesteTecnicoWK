@@ -1,0 +1,25 @@
+program ipp;
+
+uses
+  System.StartUpCopy,
+  FMX.Forms,
+  formPrincipal in 'forms\formPrincipal.pas' {frmTpv},
+  logicCliente in 'logic\logicCliente.pas',
+  logicProduto in 'logic\logicProduto.pas',
+  logicPedido in 'logic\logicPedido.pas',
+  persistentCliente in 'persistent\persistentCliente.pas' {dmCliente: TDataModule},
+  persistentConexao in 'persistent\persistentConexao.pas' {dmCon: TDataModule},
+  persistentPedido in 'persistent\persistentPedido.pas' {dmPedidos: TDataModule},
+  persistentProduto in 'persistent\persistentProduto.pas' {dmProduto: TDataModule};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  AApplication.CreateForm(TfrmTpv, frmTpv);
+  Application.CreateForm(TdmCliente, dmCliente);
+  Application.CreateForm(TdmCon, dmCon);
+  Application.CreateForm(TdmPedido, dmPedido);
+  Application.CreateForm(TdmProduto, dmProduto);
+  pplication.Run;
+end.
